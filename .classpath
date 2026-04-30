@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="target/generated-sources/torque"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="lib/sso-commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="lib/torque-3.3.jar"/>
-	<classpathentry kind="lib" path="lib/torque-commons-beanutils-1.7.0.jar"/>
-	<classpathentry kind="lib" path="lib/torque-commons-collections-3.1.jar"/>
-	<classpathentry kind="lib" path="lib/torque-commons-configuration-1.1.jar"/>
-	<classpathentry kind="lib" path="lib/torque-commons-dbcp-1.2.1.jar"/>
-	<classpathentry kind="lib" path="lib/torque-commons-lang-2.1.jar"/>
-	<classpathentry kind="lib" path="lib/torque-commons-pool-1.2.jar"/>
-	<classpathentry kind="lib" path="lib/village-3.3.jar"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="classes"/>
 </classpath>

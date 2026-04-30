@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>sk.ditec</groupId>
+    <artifactId>cud_dao</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>CUD DAO</name>
+    <description>CUD DAO projekt pouziva Torque 3.3</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
+        <torque.version>3.3</torque.version>
+    </properties>
+
+    <dependencies>
+        <!-- Torque -->
+        <dependency>
+            <groupId>org.apache.torque</groupId>
+            <artifactId>torque-runtime</artifactId>
+            <version>${torque.version}</version>
+        </dependency>
+
+        <!-- Village -->
+        <dependency>
+            <groupId>org.apache.torque</groupId>
+            <artifactId>village</artifactId>
+            <version>${torque.version}</version>
+        </dependency>
+
+        <!-- Commons Logging -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <!-- Commons BeanUtils -->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.7.0</version>
+        </dependency>
+
+        <!-- Commons Collections -->
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>3.1</version>
+        </dependency>
+
+        <!-- Commons Configuration -->
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>1.1</version>
+        </dependency>
+
+        <!-- Commons DBCP -->
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+
+        <!-- Commons Lang -->
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.1</version>
+        </dependency>
+
+        <!-- Commons Pool -->
+        <dependency>
+            <groupId>commons-pool</groupId>
+            <artifactId>commons-pool</artifactId>
+            <version>1.2</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+        <outputDirectory>classes</outputDirectory>
+        
+        <plugins>
+            <!-- Build Helper Plugin - pridá generated-sources do build -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources/torque</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <!-- Torque Maven Plugin pre generovanie kódu -->
+            <plugin>
+                <groupId>org.apache.torque</groupId>
+                <artifactId>torque-maven-plugin</artifactId>
+                <version>${torque.version}</version>
+                <executions>
+                    <!-- Generovanie kódu pre master databázu -->
+                    <execution>
+                        <id>generate-master</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>om</goal>
+                        </goals>
+                        <configuration>
+                            <schemaDir>${basedir}/ddl/schema/master</schemaDir>
+                            <outputDir>${basedir}/src</outputDir>
+                            <targetDatabase>APP</targetDatabase>
+                            <useClasspath>true</useClasspath>
+                            <reportDir>${project.build.directory}/torque</reportDir>
+                            <runOnlyOnSchemaChange>false</runOnlyOnSchemaChange>
+                        </configuration>
+                    </execution>
+                    <!-- Generovanie kódu pre meta databázu -->
+                    <execution>
+                        <id>generate-meta</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>om</goal>
+                        </goals>
+                        <configuration>
+                            <schemaDir>${basedir}/ddl/schema/meta</schemaDir>
+                            <outputDir>${basedir}/src</outputDir>
+                            <targetDatabase>APP</targetDatabase>
+                            <useClasspath>true</useClasspath>
+                            <reportDir>${project.build.directory}/torque</reportDir>
+                            <runOnlyOnSchemaChange>false</runOnlyOnSchemaChange>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <!-- Maven Jar Plugin - vytvorenie 2 JAR súborov -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.1</version>
+                <executions>
+                    <!-- Hlavný JAR (všetko) - VYPNUTÉ -->
+                    <execution>
+                        <id>default-jar</id>
+                        <phase>none</phase>
+                    </execution>
+                    <!-- JAR pre master -->
+                    <execution>
+                        <id>master-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>master</classifier>
+                            <includes>
+                                <include>sk/ditec/dao/master/**</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                    <!-- JAR pre meta -->
+                    <execution>
+                        <id>meta-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>meta</classifier>
+                            <includes>
+                                <include>sk/ditec/dao/meta/**</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- Repository pre staršie verzie Torque ak by neboli v Maven Central -->
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Maven Central</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories>
+
+</project>
