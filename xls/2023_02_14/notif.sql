@@ -1,0 +1,2 @@
+UPDATE cud_wf_def SET email_send = 'F' WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka in ('T_KATEGORIA_ZATAZENIA', 'T_DEFINICNY_USEK'));
+COMMIT;

@@ -1,0 +1,65 @@
+DELETE FROM cud_wf_todo WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_TOALETY_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_wf_todo WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_DYNAMICKE_INFORMACIE_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_wf_todo WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_ZAKLADNE_INFORMACIE_O_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_wf_todo WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_OZNACENIA_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_wf_todo WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_NASTUPISTE_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_wf_todo WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_PARKOVISKO_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_wf_todo WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_PCL_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_wf_todo WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_INFO_PULTY_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_wf_todo WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_INE_DP_PRM' AND id_transakcia_zrusene IS NULL );
+commit;
+
+DELETE FROM cud_zmena_stav_hist WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_PARKOVISKO_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_stav_hist WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_TOALETY_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_stav_hist WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_INFO_PULTY_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_stav_hist WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_OZNACENIA_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_stav_hist WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_ZAKLADNE_INFORMACIE_O_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_stav_hist WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_INE_DP_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_stav_hist WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_NASTUPISTE_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_stav_hist WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_PCL_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_stav_hist WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_DYNAMICKE_INFORMACIE_PRM' AND id_transakcia_zrusene IS NULL );
+commit;
+
+DELETE FROM cud_zmena_eskalacia WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_NASTUPISTE_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_eskalacia WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_PCL_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_eskalacia WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_INFO_PULTY_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_eskalacia WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_DYNAMICKE_INFORMACIE_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_eskalacia WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_OZNACENIA_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_eskalacia WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_ZAKLADNE_INFORMACIE_O_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_eskalacia WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_INE_DP_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_eskalacia WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_PARKOVISKO_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_eskalacia WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_TOALETY_PRM' AND id_transakcia_zrusene IS NULL );
+commit;
+
+DELETE FROM cud_zmena_stlpec WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_TOALETY_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_stlpec WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_PARKOVISKO_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_stlpec WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_OZNACENIA_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_stlpec WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_NASTUPISTE_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_stlpec WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_ZAKLADNE_INFORMACIE_O_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_stlpec WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_INE_DP_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_stlpec WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_INFO_PULTY_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_stlpec WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_DYNAMICKE_INFORMACIE_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena_stlpec WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_PCL_PRM' AND id_transakcia_zrusene IS NULL );
+commit;
+
+DELETE FROM T_PARKOVISKO_PRM;
+DELETE FROM T_INFO_PULTY_PRM;
+DELETE FROM T_OZNACENIA_PRM;
+DELETE FROM T_DYNAMICKE_INFORMACIE_PRM;
+DELETE FROM T_ZAKLADNE_INFORMACIE_O_PRM;
+DELETE FROM T_PCL_PRM;
+DELETE FROM T_NASTUPISTE_PRM;
+DELETE FROM T_TOALETY_PRM;
+DELETE FROM T_INE_DP_PRM;
+commit;
+
+DELETE FROM cud_zmena WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_TOALETY_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_INE_DP_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_ZAKLADNE_INFORMACIE_O_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_PARKOVISKO_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_DYNAMICKE_INFORMACIE_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_NASTUPISTE_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_PCL_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_INFO_PULTY_PRM' AND id_transakcia_zrusene IS NULL );
+DELETE FROM cud_zmena WHERE id_ciselnik IN ( SELECT ciselnik_id FROM cud_ciselnik WHERE tabulka = 'T_OZNACENIA_PRM' AND id_transakcia_zrusene IS NULL );
+commit;

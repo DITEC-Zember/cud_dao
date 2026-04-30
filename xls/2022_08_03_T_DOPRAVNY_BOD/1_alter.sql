@@ -1,0 +1,9 @@
+ALTER TABLE t_dopravny_bod ADD crd NVARCHAR2(1);
+ALTER TABLE t_dopravny_bod ADD id_subsidiary_type NUMBER(10);
+ALTER TABLE t_dopravny_bod ADD id_company NUMBER(10);
+ALTER TABLE t_dopravny_bod ADD manipulacia_s_kontajnermi NVARCHAR2(1);
+ALTER TABLE t_dopravny_bod ADD otvoreny_pre_od NVARCHAR2(1);
+ALTER TABLE t_dopravny_bod ADD otvoreny_pre_nd NVARCHAR2(1);
+ALTER TABLE t_dopravny_bod ADD ulica NVARCHAR2(100);
+ALTER TABLE t_dopravny_bod ADD orientacne_cislo NVARCHAR2(20);
+ALTER TABLE t_dopravny_bod ADD mesto_psc NVARCHAR2(5);

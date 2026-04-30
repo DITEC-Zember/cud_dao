@@ -1,0 +1,1 @@
+ALTER TABLE cud_uzamknutie MODIFY row_id NUMBER(10) NULL;

@@ -1,0 +1,1 @@
+ALTER TABLE t_dovod_potr MODIFY kod NVARCHAR2(6);

@@ -1,0 +1,1 @@
+ALTER TABLE t_dopravny_usek ADD dlzka_tarifna_od_km NUMBER(3);

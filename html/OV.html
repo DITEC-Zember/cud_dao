@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <style  type="text/css"> body { font-family: Arial, Helvetica, sans-serif; font-size: 8pt; color: black; text-decoration: none; margin: 8px; background-color: #EFEFF7; } a { text-decoration: none; color: black; } a:visited { text-decoration: none; } a:hover { text-decoration: underline; } input,textarea { background-color: white; } textarea { overflow: hide; } select { background-color: #B5CFE7; margin: 0px; border: 1px solid #83838F; } img { border: 0px solid black; } h2 { font-family: verdana, arial, sans-serif; color: #999; font-size: 12px; font-weight: bold; background: #FFF; line-height: 14px; padding: 2px; margin-top: 10px; border-bottom: 1px dotted #666; text-transform: uppercase; letter-spacing: .2em; } .headerTR { align: center; font-weight: bold; font-size: 11px; } .contentTR { align: center;font-size: 11px; } .contentTD { align: center; font-size: 11px; }</style>
+   </head>
+   <body>
+      V aplikácii Centrálne úložisko údajov bola uskutočnená zmena číselníka <b>{ciselnik}</b> 
+      <br/><br/>
+      Typ operácie: <b>{operacia}</b>
+      <br/><br/><br/>
+      Atribúty záznamu:
+      <br/>
+      <table border="1" cellpadding="2" cellspacing="0">
+        <col style=\"width: 120px;\"/>
+        <col style=\"width: 200px;\"/>
+        {hodnotyTableContent}
+      </table>
+      <br/><br/>
+      Zmenené atribúty záznamu:
+      <br />
+      <table border="1" cellpadding="2" cellspacing="0">
+        <col style=\"width: 120px;\"/>
+        <col style=\"width: 100px;\"/>
+        <col style=\"width: 100px;\"/>
+        {zmenaTableContent}
+      </table>
+      <br/>
+      {poznamka}
+      <br/>
+      Nová platnosť od: <b>{platnostOd}</b>
+      <br/><br/><br/>
+      <hr/>
+      Prosím, neodpovedajte na túto správu. Odosielateľ je nemonitorovaný poštový priečinok.
+   </body>
+</html>

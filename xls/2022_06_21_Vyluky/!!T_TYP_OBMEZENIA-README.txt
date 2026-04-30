@@ -1,0 +1,1 @@
+v tabuľke T_TYP_OBMEDZENIA treba vymazať všetky naloadovane data z registra zmien a z tabulky T_TYP_OBMEDZENIA

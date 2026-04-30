@@ -1,0 +1,1 @@
+ALTER TABLE t_kategoria_zatazenia MODIFY vzdial_naprav_m NUMBER(9, 2);
