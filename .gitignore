@@ -2,9 +2,10 @@
 *.class
 *.jar
 *.war
+*.log
 
 # classes
 /classes/
+/target/
 
-# Torque generované súbory (ak ich nechceš v Gite)
-/src//sk/ditec/dao
+
