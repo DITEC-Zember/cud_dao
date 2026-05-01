@@ -90,27 +90,6 @@
         <outputDirectory>classes</outputDirectory>
         
         <plugins>
-            <!-- Build Helper Plugin - pridá generated-sources do build -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.7</version>
-                <executions>
-                    <execution>
-                        <id>add-source</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>add-source</goal>
-                        </goals>
-                        <configuration>
-                            <sources>
-                                <source>${project.build.directory}/generated-sources/torque</source>
-                            </sources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -137,8 +116,7 @@
                         </goals>
                         <configuration>
                             <schemaDir>${basedir}/ddl/schema/master</schemaDir>
-                            <outputDir>${basedir}/src</outputDir>
-                            <reportDir>${project.build.directory}/torque</reportDir>
+                            <outputDir>${project.build.directory}/generated-sources/torque</outputDir>
                             <targetDatabase>APP</targetDatabase>
                             <useClasspath>true</useClasspath>
                             <runOnlyOnSchemaChange>false</runOnlyOnSchemaChange>
@@ -153,8 +131,7 @@
                         </goals>
                         <configuration>
                             <schemaDir>${basedir}/ddl/schema/meta</schemaDir>
-                            <outputDir>${basedir}/src</outputDir>
-                            <reportDir>${project.build.directory}/torque</reportDir>
+                            <outputDir>${project.build.directory}/generated-sources/torque</outputDir>
                             <targetDatabase>APP</targetDatabase>
                             <useClasspath>true</useClasspath>
                             <runOnlyOnSchemaChange>false</runOnlyOnSchemaChange>
