@@ -140,7 +140,6 @@
                             <outputDir>${basedir}/src</outputDir>
                             <targetDatabase>APP</targetDatabase>
                             <useClasspath>true</useClasspath>
-                            <reportDir>${project.build.directory}/torque</reportDir>
                             <runOnlyOnSchemaChange>false</runOnlyOnSchemaChange>
                         </configuration>
                     </execution>
@@ -156,7 +155,6 @@
                             <outputDir>${basedir}/src</outputDir>
                             <targetDatabase>APP</targetDatabase>
                             <useClasspath>true</useClasspath>
-                            <reportDir>${project.build.directory}/torque</reportDir>
                             <runOnlyOnSchemaChange>false</runOnlyOnSchemaChange>
                         </configuration>
                     </execution>
