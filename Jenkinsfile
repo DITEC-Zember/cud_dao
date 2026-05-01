@@ -7,6 +7,12 @@ pipeline {
     // }
     // Poznámka: ak nemáte nakonfigurované tools v Jenkins, Maven a JDK musia byť v PATH
     
+    triggers {
+        // Kontrolovať Git repozitár každých 5 minút
+        pollSCM('H/5 * * * *')
+        // Alebo použite GitHub webhook pre okamžité spustenie (vyžaduje GitHub plugin a webhook nastavenie)
+    }
+    
     options {
         // Uchovávať len posledných 10 buildov
         buildDiscarder(logRotator(numToKeepStr: '10'))
