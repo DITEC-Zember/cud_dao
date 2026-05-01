@@ -137,7 +137,7 @@
                         </goals>
                         <configuration>
                             <schemaDir>${basedir}/ddl/schema/master</schemaDir>
-                            <outputDir>${basedir}/src</outputDir>
+                            <outputDir>${project.build.directory}/generated-sources/torque</outputDir>
                             <targetDatabase>APP</targetDatabase>
                             <useClasspath>true</useClasspath>
                             <runOnlyOnSchemaChange>false</runOnlyOnSchemaChange>
@@ -152,7 +152,7 @@
                         </goals>
                         <configuration>
                             <schemaDir>${basedir}/ddl/schema/meta</schemaDir>
-                            <outputDir>${basedir}/src</outputDir>
+                            <outputDir>${project.build.directory}/generated-sources/torque</outputDir>
                             <targetDatabase>APP</targetDatabase>
                             <useClasspath>true</useClasspath>
                             <runOnlyOnSchemaChange>false</runOnlyOnSchemaChange>
