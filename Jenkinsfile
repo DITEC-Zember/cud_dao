@@ -24,19 +24,6 @@ pipeline {
         disableConcurrentBuilds()
     }
     
-    parameters {
-        booleanParam(
-            name: 'SKIP_TESTS',
-            defaultValue: false,
-            description: 'Preskočiť testy pri builde'
-        )
-        booleanParam(
-            name: 'DEPLOY_ARTIFACTS',
-            defaultValue: false,
-            description: 'Nasadiť artefakty do repozitára'
-        )
-    }
-    
     environment {
         // Maven nastavenia
         MAVEN_OPTS = '-Xmx1024m -XX:MaxPermSize=512m'
@@ -75,9 +62,6 @@ pipeline {
         }
         
         stage('Test') {
-            when {
-                expression { params.SKIP_TESTS == false }
-            }
             steps {
                 echo 'Spúšťanie testov...'
                 bat 'mvn test'
@@ -93,13 +77,7 @@ pipeline {
         stage('Package') {
             steps {
                 echo 'Vytváranie JAR súborov...'
-                script {
-                    if (params.SKIP_TESTS) {
-                        bat 'mvn package -DskipTests'
-                    } else {
-                        bat 'mvn package'
-                    }
-                }
+                bat 'mvn package -DskipTests'
             }
         }
         
@@ -109,17 +87,6 @@ pipeline {
                 archiveArtifacts artifacts: 'target/*.jar', 
                                  fingerprint: true,
                                  allowEmptyArchive: false
-            }
-        }
-        
-        stage('Deploy to Repository') {
-            when {
-                expression { params.DEPLOY_ARTIFACTS == true }
-            }
-            steps {
-                echo 'Nasadzovanie artefaktov do Maven repozitára...'
-                // Predpokladá nakonfigurovaný distributionManagement v pom.xml
-                bat 'mvn deploy -DskipTests'
             }
         }
     }
