@@ -138,6 +138,7 @@
                         <configuration>
                             <schemaDir>${basedir}/ddl/schema/master</schemaDir>
                             <outputDir>${basedir}/src</outputDir>
+                            <reportDir>${project.build.directory}/torque</reportDir>
                             <targetDatabase>APP</targetDatabase>
                             <useClasspath>true</useClasspath>
                             <runOnlyOnSchemaChange>false</runOnlyOnSchemaChange>
@@ -153,6 +154,7 @@
                         <configuration>
                             <schemaDir>${basedir}/ddl/schema/meta</schemaDir>
                             <outputDir>${basedir}/src</outputDir>
+                            <reportDir>${project.build.directory}/torque</reportDir>
                             <targetDatabase>APP</targetDatabase>
                             <useClasspath>true</useClasspath>
                             <runOnlyOnSchemaChange>false</runOnlyOnSchemaChange>
