@@ -1,10 +1,11 @@
 pipeline {
     agent any
     
-    tools {
-        maven 'Maven 3.6.3' // Názov Maven inštalácie v Jenkins Global Tool Configuration
-        jdk 'JDK 1.8'       // Názov JDK inštalácie v Jenkins Global Tool Configuration
-    }
+    // tools {
+    //     maven 'Maven 3.6.3' // Nakonfigurujte v Jenkins > Global Tool Configuration
+    //     jdk 'JDK 1.8'       // Nakonfigurujte v Jenkins > Global Tool Configuration
+    // }
+    // Poznámka: ak nemáte nakonfigurované tools v Jenkins, Maven a JDK musia byť v PATH
     
     options {
         // Uchovávať len posledných 10 buildov
